@@ -1,8 +1,36 @@
+
+
+
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Submit Form Using AJAX,PHP and javascript</title>
 		<script src="text/javascript">
-	</script>
+	function myFunction() {
+	var name = document.getElementById("name").value;
+	var contact = document.getElementById("contact").value;
+	var gender = document.form.gender.value;
+	var address = document.getElementById("address").value;
+	var payment = document.form.pay.value;
+	var pendrive = document.getElementById("pendrive").value;
+	var mouse = document.getElementById("mouse").value;
+	var keyboard = document.getElementById("keyboard").value;
+	var laptop = document.getElementById("laptop").value;
+	var dataString = 'name=' + name + '&contact=' + contact + '&gender=' + gender + '&address=' + address + '&payment=' + payment +'&pendrive=' + pendrive + '&mouse=' + mouse + '&keyboard=' + keyboard + '&laptop=' + laptop;
+	var xmlObj=new XMLHttpRequest();
+	xmlObj.onreadystatechange=function()
+		{
+		    if(this.readyState == 4 && this.status == 200)
+                                         {
+                                           document.getElementById("res").innerHTML=this.responseText;
+                                         }
+                                      };
+       	   xmlObj.open("GET",dataString,true);
+       	   xmlObj.send();
+     	   }
+	
+	return false;
+	}</script>
 		<style>
 			table, th, td {
 				border: 1px solid black;
