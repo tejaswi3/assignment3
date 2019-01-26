@@ -1,83 +1,84 @@
+
+
+
+<!DOCTYPE html>
 <html>
-<head>
- <style>
-
-table, th, td {
-  border: 1px solid black;
- 
- border-collapse: collapse;
-}
-
-</style>
-</head>
-<body>
-<?php
-	$name=$_GET["name"];
-	$gender=$_GET["gender"];
-	$address=$_GET["address"];
-	$pno=$_GET["pno"];
-	$payment_type=$_GET["paymenttype"];
-	$q1=$_GET["Q1"];
-	$q2=$_GET["Q2"];
-	$q3=$_GET["Q3"];
-	$q4=$_GET["Q4"];
-	?>
-    <?php echo "Name:".$name;?><br>
-    <?php echo"Gender:". $gender;?><br>
-    <?php echo"Address:".$address;?><br>
-    <?php echo"phonenumber:".$pno;?><br>
-    <?php echo"Type of payment you opted:".$payment_type;?><br>
-    <table>
-    <tr>
-    <th>item</th>
-    <th>Qty</th> 
-    <th>cost</th>
-    </tr>
-  
-<tr>
-    
-<td>USB pendrive</td>
-    
-<td><?php echo $q1;?></td> 
-    
-<td><?php echo $q1*300;?></td>
- 
- </tr>
- 
- <tr>
-   
- <td>wireless mouse</td>
-   
- <td><?php echo $q2;?></td> 
-   
- <td><?php echo $q2*200;?></td>
-  </tr>
- 
- <tr>
-   
- <td>keyboard</td>
-   
- <td><?php echo $q3;?></td> 
-    
-<td><?php echo $q3*400;?></td>
- 
- </tr>
- 
- <tr>
-    
-<td>laptop</td>
-    
-<td><?php echo $q4;?></td> 
-    
-<td><?php echo $q4*33000;?></td>
- 
- </tr>
- <?php $total=$q1*300+$q2*200+$q3*400+$q4*33000;?> 
- <tr>
-<td><h2>Total cost :</h2><?php echo $total;?></td>
-</tr>
-</table>
-<h1><?php 
-    echo"Thanks for your order";?></h1>
-</body>
+	<head>
+		<title>Submit Form Using AJAX,PHP and javascript</title>
+		<script src="text/javascript">
+	</script>
+		<style>
+			table, th, td {
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>Submit Form Using AJAX,PHP and javascript</h2>
+		<!-- Required Div Starts Here -->
+		<form id="form" name="form">
+			<h3>Fill Your Information!</h3>
+			<div>
+				<label>Name :</label>
+				<input id="name" type="text"><br/>
+				<label>Gender :</label>
+				<input type="radio" name="gender" value="Male"><label>Male</label>
+				<input type="radio" name="gender" value="Female"><label>Female</label><br/>
+				<label>Address :</label>
+				<textarea id="address"></textarea><br/>
+				<label>Contact No :</label>
+				<input id="contact" type="text"><br/>
+				<label>Payment Options :</label>
+				<input type="radio" name="pay" value="Cash on Delivery"><label>COD</label>
+				<input type="radio" name="pay" value="NetBanking"><label>Net Banking</label>
+				<input type="radio" name="pay" value="Credit/Debit Card"><label>Credit/Debit Card</label><br/>
+				<br/>
+				<table id="cart">
+					<tr id="heads">
+						<th>Product</th>
+						<th>Unit Price</th> 
+						<th>Quantity</th>
+					</tr>
+					<tr>
+						<td>USB Pendrive</td>
+						<td>300</td> 
+						<td><input id="pendrive" type="number" min="0"></td>
+					</tr>
+					<tr>
+						<td>Wireless Mouse</td>
+						<td>200</td> 
+						<td><input id="mouse" type="number" min="0"></td>
+					</tr>
+					<tr>
+						<td>Keyboard</td>
+						<td>400</td> 
+						<td><input id="keyboard" type="number" min="0"></td>
+					</tr>
+					<tr>
+						<td>Laptop</td>
+						<td>33000</td> 
+						<td><input id="laptop" type="number" min="0"></td>
+					</tr>
+				</table>
+				<br/>
+				<input id="submit" onclick="myFunction()" type="button" value="Submit">
+			</div>
+		</form>
+	</body>
 </html>
+
+
+<?php
+	$name = $_GET['name'];
+	$contact = $_GET['contact'];
+	$gender = $_GET['gender'];
+	$address = $_GET['address'];
+	$payment = $_GET['payment'];
+	$pendrive = $_GET['pendrive'];
+	$mouse = $_GET['mouse'];
+	$keyboard = $_GET['keyboard'];
+	$laptop = $_GET['laptop'];
+	
+	echo $name.';'.$contact.';'.$gender.';'.$address.';'.$payment.';'.$pendrive.';'.$mouse.';'.$keyboard.';'.$laptop;
+?>
